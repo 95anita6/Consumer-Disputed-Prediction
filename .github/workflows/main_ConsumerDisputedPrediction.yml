@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'ConsumerDisputedPrediction'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_89b1c89b654f4ba795711754df1c9883 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_538ce79b05604a9f83998730fbea32b8 }}
