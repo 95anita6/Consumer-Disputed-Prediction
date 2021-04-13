@@ -1,0 +1,297 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Disputed Prediction</title>  
+    
+    <style>
+     
+     select {
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+        
+     input[type=datetime-local] {
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+        
+    input[type=text] {
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+     input[type=number] {
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+        
+    input[type=submit] {
+      background-color: #8585ad;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    </style>
+</head>
+
+<body>    
+    <!-- As a heading -->
+    <h3 align='center'><a href="/">CHECK IF CONSUMER WILL DISPUTE</a></h3> 
+    
+    <div class="container", style="border-radius: 5px; background-color: #f2f2f2; padding: 20px;", align='center'>
+        
+        <h2><u>{{ prediction_text }}</u></h2><br><br>
+        
+        <form action="\predict" method="post">
+            
+            <table>
+                
+                <tr>
+                    <th>
+                        <!-- Complaint ID -->
+                        <h4 class="card-title">Enter the complaint ID</h4>
+                        <input type="number" name="Complaint_ID" id="Complaint_ID" required="required">
+                    </th>
+                    <th>
+                        <!-- Complaint Received Date -->
+                        <h4 class="card-title">Complaint Received Date</h4>
+                        <input type="datetime-local" name="Date_Recived" id="Date_Recived" required="required">
+                    </th>
+                    <th>
+                        <!-- Date sent to company -->
+                        <h4 class="card-title">Complaint Date sent to company</h4>
+                        <input type="datetime-local" name="Date_sent_to_company" id="Date_sent_to_company" required="required">
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th>
+                        <!-- Company -->
+                        <h4 class="card-title">Company</h4>
+                        <input type="text" name="Company" id="Company" required="required", value='Bank Of America' readonly>
+                    </th>
+                    <th>
+                        <!-- State -->
+                        <h4 class="card-title">State</h4>
+                        <select name="State" id="State" required="required">
+                            <option value="NJ">NJ</option>
+                            <option value="NY">NY</option>
+                            <option value="PA">PA</option>
+                            <option value="NH">NH</option>
+                            <option value="MA">MA</option>
+                            <option value="CT">CT</option>
+                            <option value="ME">ME</option>
+                            <option value="VT">VT</option>
+                            <option value="RI">RI</option>
+                            <option value="AE">AE</option>
+                            <option value="TX">TX</option>
+                            <option value="OK">OK</option>
+                            <option value="VA">VA</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="NC">NC</option>
+                            <option value="LA">LA</option>
+                            <option value="SC">SC</option>
+                            <option value="KY">KY</option>
+                            <option value="MD">MD</option>
+                            <option value="DC">DC</option>
+                            <option value="TN">TN</option>
+                            <option value="AL">AL</option>
+                            <option value="DE">DE</option>
+                            <option value="MS">MS</option>
+                            <option value="AR">AR</option>
+                            <option value="WV">WV</option>
+                            <option value="AS">AS</option>
+                            <option value="PR">PR</option>
+                            <option value="MH">MH</option>
+                            <option value="GU">GU</option>
+                            <option value="MP">MP</option>
+                            <option value="FM">FM</option>
+                            <option value="VI">VI</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="NE">NE</option>
+                            <option value="WI">WI</option>
+                            <option value="MN">MN</option>
+                            <option value="OH">OH</option>
+                            <option value="MO">MO</option>
+                            <option value="MI">MI</option>
+                            <option value="SD">SD</option>
+                            <option value="KS">KS</option>
+                            <option value="IA">IA</option>
+                            <option value="ND">ND</option>
+                            <option value="CA">CA</option>
+                            <option value="OR">OR</option>
+                            <option value="WA">WA</option>
+                            <option value="NV">NV</option>
+                            <option value="AZ">AZ</option>
+                            <option value="NM">NM</option>
+                            <option value="UT">UT</option>
+                            <option value="CO">CO</option>
+                            <option value="ID">ID</option>
+                            <option value="AK">AK</option>
+                            <option value="WY">WY</option>
+                            <option value="HI">HI</option>
+                            <option value="MT">MT</option>
+                            <option value="AP">AP</option>
+                        </select>
+                    </th>
+                    <th>
+                        <!-- ZIP code -->
+                        <h4 class="card-title">ZIP code</h4>
+                        <input type="number" name="ZIP_code" id="ZIP_code" required="required">
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th>
+                        <!-- Product -->
+                        <h4 class="card-title">Product</h4>
+                        <select name="Product" id="Product" required="required">
+                            <option value="Mortgage">Mortgage</option>
+                            <option value="Debt collection">Debt collection</option>
+                            <option value="Credit reporting">Credit reporting</option>
+                            <option value="Credit card">Credit card</option>
+                            <option value="Prepaid card">Prepaid card</option>
+                            <option value="Bank account or service">Bank account or service</option>
+                            <option value="Money transfers">Money transfers</option>
+                            <option value="Consumer Loan">Consumer Loan</option>
+                            <option value="Student loan">Student loan</option>
+                            <option value="Payday loan">Payday loan</option>
+                            <option value="Other financial service">Other financial service</option>
+                        </select>
+                    </th>
+                    <th>
+                        <!-- Complaint Received Date -->
+                        <h4 class="card-title">Sub Product</h4>
+                        <input type="text" name="Sub_Product" id="Sub_Product" maxlength=50>
+                    </th>
+                    <th>
+                        <!-- Submitted via -->
+                        <h4 class="card-title">Submitted via</h4>
+                        <select name="Submitted_via" id="Submitted_via" required="required">
+                            <option value="Web">Web</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Postal mail">Postal mail</option>
+                            <option value="Fax">Fax</option>
+                            <option value="Email">Email</option>
+                        </select>
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th>
+                        <!-- Issue -->
+                        <h4 class="card-title">Issue</h4>
+                        <select name="Issue" id="Issue" required="required">
+                            <option value="Loan modification,collection,foreclosure">Loan modification,collection,foreclosure</option>
+                            <option value="Loan servicing, payments, escrow account">Loan servicing, payments, escrow account</option>
+                            <option value="Account opening, closing, or management">Account opening, closing, or management</option>
+                            <option value="Deposits and withdrawals">Deposits and withdrawals</option>
+                            <option value="Application, originator, mortgage broker">Application, originator, mortgage broker</option>
+                            <option value="Problems caused by my funds being low">Problems caused by my funds being low</option>
+                            <option value="Billing disputes">Billing disputes</option>
+                            <option value="Settlement process and costs">Settlement process and costs</option>
+                            <option value="Making/receiving payments, sending money">Making/receiving payments, sending money</option>
+                            <option value="Using a debit or ATM card">Using a debit or ATM card</option>
+                            <option value="Credit decision / Underwriting">Credit decision / Underwriting</option>
+                            <option value="Closing/Cancelling account">Closing/Cancelling account</option>
+                            <option value="Identity theft / Fraud / Embezzlement">Identity theft / Fraud / Embezzlement</option>
+                            <option value="Cont'd attempts collect debt not owed">Cont'd attempts collect debt not owed</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </th>
+                    <th>
+                        <!-- Sub Issue -->
+                        <h4 class="card-title">Sub Issue</h4>
+                        <input type="text" name="Sub_Issue" id="Sub_Issue" maxlength=100>
+                    </th>
+                    <th>
+                        <!-- Consumer complaint narrative -->
+                        <h4 class="card-title">Consumer complaint narrative</h4>
+                        <input type="text" name="Consumer_complaint_narrative" id="Consumer_complaint_narrative" maxlength=250>
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th>
+                        <!-- Company public response -->
+                        <h4 class="card-title">Company public response</h4>
+                        <input type="text" name="Company_public_response" id="Company_public_response" maxlength=50>
+                    </th>
+                    <th>
+                        <!-- Company response to consumer -->
+                        <h4 class="card-title">Company response to consumer</h4>
+                        <select name="Company_response_to_consumer" id="Company_response_to_consumer" required="required">
+                            <option value="Closed with explanation">Closed with explanation</option>
+                            <option value="Closed with non-monetary relief">Closed with non-monetary relief</option>
+                            <option value="Closed with monetary relief">Closed with monetary relief</option>
+                            <option value="Closed without relief">Closed without relief</option>
+                            <option value="Closed">Closed</option>
+                            <option value="Closed with relief">Closed with relief</option>
+                        </select>
+                    </th>
+                    <th>
+                        <!-- Timely response? -->
+                        <h4 class="card-title">Timely response?</h4>
+                        <select name="Timely_response" id="Timely_response" required="required">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th>
+                        <!-- Tags -->
+                        <h4 class="card-title">Tags</h4>
+                        <select name="Tags" id="Tags">
+                            <option value="Older American">Older American</option>
+                            <option value="Servicemember">Servicemember</option>
+                            <option value="Older American, Servicemember">Older American, Servicemember</option>
+                        </select>
+                    </th>
+                    <th>
+                        <!-- Consumer consent provided? -->
+                        <h4 class="card-title">Consumer consent provided?</h4>
+                        <input type="text" name="Consumer_consent_provided" id="Consumer_consent_provided?" maxlength=50>
+                    </th>
+                </tr>
+                
+            </table>
+
+            <br><br><br>
+            <!-- Submit -->
+            <input type="submit" value="Check if consumer will dispute" class="btn btn-secondary">
+                
+        </form>
+    </div>
+</body>
+</html>
